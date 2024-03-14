@@ -1,0 +1,76 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Task</title>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: #f2f2f2;
+        margin: 0;
+        padding: 0;
+    }
+    h1 {
+        color: #333;
+        margin-top: 50px;
+    }
+    form {
+        margin-top: 20px;
+    }
+    label {
+        font-weight: bold;
+    }
+    input[type="text"], input[type="submit"] {
+        width: 300px;
+        padding: 10px;
+        margin: 5px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+    button[type="submit"] {
+        background-color: #f44336; /* Red */
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 8px;
+        transition-duration: 0.4s;
+    }
+    button[type="submit"]:hover {
+        background-color: #d32f2f; /* Darker Red */
+    }
+    .footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: #333;
+        padding: 10px 0;
+        color: #fff;
+    }
+    .footer a {
+        color: #fff;
+        text-decoration: none;
+        margin-right: 20px;
+    }
+</style>
+</head>
+<body>
+    <h1>Delete Task</h1>
+    <form action="/deletetask" method="post">
+        <input type="hidden" name="_method" value="DELETE">
+        <label for="id">ID:</label><br>
+        <input type="text" id="id_del" name="id_del"><br>
+        <button type="submit">Delete Task</button>
+    </form>
+    <div class="footer">
+        <a href="/">Go to Home</a>
+    </div>
+</body>
+</html>

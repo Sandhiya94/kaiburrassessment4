@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Tasks by Assignee</title>
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+
+</head>
+<body>
+    <h1>Search Top 10 records from assignee</h1>
+    <form action="/assigneetask" method="GET">
+        <label for="search">Search Assignee:</label><br>
+        <input type="text" id="assignee_id" name="assignee_id"><br>
+        <input type="submit" value="Search">
+    </form>
+
+    <h2>Search Results</h2>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>ID</th>
+            <th>Assignee</th>
+            <th>Project</th>
+            <th>Start Time</th>
+        </tr>
+        <!-- Iterate over search results and display each record in a table row -->
+        
+        {% for task in search_tasks %}
+        <tr>
+            <td>{{ task.name }}</td>
+            <td>{{ task.id }}</td>
+            <td>{{ task.assignee }}</td>
+            <td>{{ task.project }}</td>
+            <td>{{ task.startTime }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <div class="footer">
+        <a href="/">Go to Home</a>
+    </div>
+</body>
+</html>
