@@ -94,7 +94,6 @@ def search_assignee():
     else:
         return 'Error: Failed to fetch data from the API'
 
-
 # Run the Flask application
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
