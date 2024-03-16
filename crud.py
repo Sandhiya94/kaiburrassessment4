@@ -48,7 +48,7 @@ def search_tasks():
         return 'Error: Failed to fetch data from the API'
 
 #creating tasks
-@app.route('/create')
+@app.route('/create', methods=['GET'])
 def render_create():
  return render_template('create.html', search_tasks=[search_tasks])
 
