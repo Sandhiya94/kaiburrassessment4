@@ -45,7 +45,7 @@ USER appuser
 COPY . .
 
 # Expose the port that the application listens on.
-EXPOSE 8080
+EXPOSE 80
 
 # Run the application.
-CMD gunicorn 'crud:app' --bind=0.0.0.0:8080
+CMD gunicorn 'crud:app' --bind=0.0.0.0:80
