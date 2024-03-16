@@ -50,7 +50,8 @@ def search_tasks():
 #creating tasks
 @app.route('/create', methods=['GET'])
 def render_create():
- return render_template('create.html', search_tasks=[search_tasks])
+#  return render_template('create.html', search_tasks=[search_tasks])
+    return render_template('create.html')
 
 @app.route('/createtask', methods=['POST'])
 def create_task():
