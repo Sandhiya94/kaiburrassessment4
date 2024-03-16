@@ -5,7 +5,7 @@ import requests
 # Create a Flask application instance
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/', methods=['GET'])
 def show_index():
     # return render_template('index.html')
    response = requests.get('http://host.docker.internal:8080/tasks')
