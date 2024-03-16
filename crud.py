@@ -12,6 +12,7 @@ def show_index():
 #    return response.json()
 #    return "hello world"
 
+
 # Deleting tasks
 @app.route('/delete')
 def render_delete():
