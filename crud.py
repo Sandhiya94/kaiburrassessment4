@@ -19,7 +19,7 @@ def render_delete():
 @app.route('/deletetask/<id_del>')
 def delete_tasks():
     id_del = request.form["id_del"]
-    response = requests.delete(f'http://localhost:8080/tasks/{id_del}')
+    response = requests.delete(f'http://host.docker.internal:8080/tasks/{id_del}')
     if response.status_code == 200:
         return 'Task Deleted Successfully'
     else:
@@ -31,16 +31,17 @@ def delete_tasks():
 def search_tasks():
     task_id = request.args.get('task_id')   
     if not task_id:
-        response = requests.get('http://localhost:8080/tasks')
+        # response = requests.get('http://localhost:8080/tasks')
+       response = requests.get('http://host.docker.internal:8080/tasks')
     else:
-        response = requests.get(f'http://localhost:8080/tasks/{task_id}')
+        response = requests.get(f'http://host.docker.internal:8080/tasks/{task_id}')
     if response.status_code == 200:
         search_tasks= response.json()
         if task_id:
            search_tasks = [search_tasks]
         return render_template('findall.html', search_tasks=search_tasks)
     else:
-        return 'Error: Failed to fetch data from the API'
+        return 'Error : Failed to fetch data from the API'
 
 #creating tasks
 @app.route('/create')
@@ -64,7 +65,7 @@ def create_task():
 
     headers = {"Content-Type": "application/json; charset=utf-8"}
 
-    response = requests.post('http://localhost:8080/tasks', json=json.loads(json.dumps(task_data)),headers=headers)
+    response = requests.post('http://host.docker.internal:8080/tasks', json=json.loads(json.dumps(task_data)),headers=headers)
 
     if response.status_code == 201:
         return '<h1>Task created successfully</h1> <a href="/">Go to Home</a></div>'
@@ -81,7 +82,7 @@ def render_assignee():
 @app.route('/assigneetask/<assignee_id>')
 def search_assignee():
     assignee_id = request.args.get('assignee_id')
-    response = requests.get(f'http://localhost:8080/tasks/assignee/{assignee_id}')
+    response = requests.get(f'http://host.docker.internal:8080/tasks/assignee/{assignee_id}')
     print(response)
     if response.status_code == 200:
         search_tasks= response.json()
