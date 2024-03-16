@@ -41,7 +41,7 @@ def search_tasks():
            search_tasks = [search_tasks]
         return render_template('findall.html', search_tasks=search_tasks)
     else:
-        return 'Error : Failed to fetch data from the API'
+        return 'Error: Failed to fetch data from the API'
 
 #creating tasks
 @app.route('/create')
