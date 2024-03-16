@@ -7,7 +7,8 @@ app = Flask(__name__)
 
 @app.route('/')
 def show_index():
-    return render_template('index.html')
+    # return render_template('index.html')
+   return "hello world"
 
 # Deleting tasks
 @app.route('/delete')
