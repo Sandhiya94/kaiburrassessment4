@@ -8,7 +8,8 @@ app = Flask(__name__)
 @app.route('/')
 def show_index():
     # return render_template('index.html')
-   return "hello world"
+   response = requests.get('http://host.docker.internal:8080/tasks')
+   return response.json()
 
 # Deleting tasks
 @app.route('/delete')
