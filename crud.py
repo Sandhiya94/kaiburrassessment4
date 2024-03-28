@@ -8,9 +8,6 @@ app = Flask(__name__)
 @app.route('/', methods=['GET'])
 def show_index():
     return render_template('index.html')
-#    response = requests.get('http://54.242.108.167/tasks')
-#    return response.json()
-#    return "hello world"
 
 
 # Deleting tasks
@@ -50,7 +47,6 @@ def search_tasks():
 #creating tasks
 @app.route('/create', methods=['GET'])
 def render_create():
-#  return render_template('create.html', search_tasks=[search_tasks])
     return render_template('create.html')
 
 @app.route('/createtask', methods=['POST'])
@@ -80,7 +76,7 @@ def create_task():
 #Assignee tasks
 @app.route('/assignee')
 def render_assignee():
- return render_template('assignee.html', search_tasks=[search_tasks])
+ return render_template('assignee.html')
 
 #searching top 10 assignee
 @app.route('/assigneetask', methods=['GET'])
